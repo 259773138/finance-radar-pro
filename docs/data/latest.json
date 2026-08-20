@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20 20:04",
+  "generated_at": "2026-08-20 20:08",
   "date": "2026-08-20",
   "hotspots": [
     {
@@ -203,48 +203,48 @@
     {
       "code": "510050",
       "name": "50ETF",
-      "price": 271.32,
-      "pct": 3.06,
+      "price": 126.28,
+      "pct": 1.29,
       "amount": "--",
       "source": "mock",
       "note": "演示数据(未配置真实行情源或网络受限)",
-      "tech": "放量上攻"
+      "tech": "承压回调"
     },
     {
       "code": "588000",
       "name": "科创50",
-      "price": 29.18,
-      "pct": -0.49,
-      "amount": "--",
-      "source": "mock",
-      "note": "演示数据(未配置真实行情源或网络受限)",
-      "tech": "缩量整理"
-    },
-    {
-      "code": "159919",
-      "name": "沪深300ETF",
-      "price": 185.54,
-      "pct": 2.58,
+      "price": 229.65,
+      "pct": 3.11,
       "amount": "--",
       "source": "mock",
       "note": "演示数据(未配置真实行情源或网络受限)",
       "tech": "放量上攻"
     },
     {
-      "code": "600519",
-      "name": "贵州茅台",
-      "price": 245.03,
-      "pct": -0.74,
+      "code": "159919",
+      "name": "沪深300ETF",
+      "price": 174.56,
+      "pct": -0.3,
       "amount": "--",
       "source": "mock",
       "note": "演示数据(未配置真实行情源或网络受限)",
       "tech": "缩量整理"
     },
     {
+      "code": "600519",
+      "name": "贵州茅台",
+      "price": 105.92,
+      "pct": -0.84,
+      "amount": "--",
+      "source": "mock",
+      "note": "演示数据(未配置真实行情源或网络受限)",
+      "tech": "承压回调"
+    },
+    {
       "code": "300750",
       "name": "宁德时代",
-      "price": 51.08,
-      "pct": 1.0,
+      "price": 136.1,
+      "pct": -2.39,
       "amount": "--",
       "source": "mock",
       "note": "演示数据(未配置真实行情源或网络受限)",
@@ -253,18 +253,18 @@
     {
       "code": "hk00700",
       "name": "腾讯控股",
-      "price": 296.19,
-      "pct": 0.49,
+      "price": 82.24,
+      "pct": 0.96,
       "amount": "--",
       "source": "mock",
       "note": "演示数据(未配置真实行情源或网络受限)",
-      "tech": "缩量整理"
+      "tech": "承压回调"
     },
     {
       "code": "AAPL",
       "name": "苹果",
-      "price": 203.89,
-      "pct": -1.0,
+      "price": 270.61,
+      "pct": -1.69,
       "amount": "--",
       "source": "mock",
       "note": "演示数据(未配置真实行情源或网络受限)",
@@ -272,102 +272,108 @@
     }
   ],
   "analysis": {
-    "core_conclusion": "政策面偏暖，热点聚焦AI与新能源；持仓整体 放量上攻，建议控制仓位、逢高兑现。",
+    "core_conclusion": "全球利率上行压力再现，A股科技成长股受益于政策与产业双轮驱动，叠加龙头公司回购与AI进展催化，短期关注科创50与半导体核心资产。",
     "policy_radar": [
       {
-        "title": "美债回吐回购计划宣布后的部分涨幅 30年期收益率重回5.2%",
-        "impact": "来源华尔街见闻，命中关键词财政部，对大盘情绪偏正向"
+        "title": "中基协：7月新备案私募证券基金规模超728亿元",
+        "impact": "显示增量资金持续入市，尤其利好权益类资产配置，反映市场信心回暖，对A股流动性形成支撑。"
       },
       {
-        "title": "中基协：7月新备案私募证券投资基金1763只 新备案规模72",
-        "impact": "来源华尔街见闻，命中关键词私募，对大盘情绪偏正向"
+        "title": "中金公司换股吸收合并东兴证券、信达证券将上会审核",
+        "impact": "券商行业整合提速，若通过将增强头部券商综合竞争力，提振市场对金融改革预期。"
       },
       {
-        "title": "富士康紧急招工冲刺iPhone18量产",
-        "impact": "来源华尔街见闻，命中关键词苹果，对大盘情绪偏正向"
+        "title": "财政部美债收益率回升至5.2%上方",
+        "impact": "全球无风险利率压力回升，压制成长股估值，增加港股及中概股资金外流风险。"
       }
     ],
     "market_hot": [
-      {
-        "title": "现货黄金日内跌幅达1%，报4477.33美元/盎司。",
-        "desc": "现货黄金日内跌幅达1%，报4477.33美元/盎司。"
-      },
-      {
-        "title": "阿里巴巴吴泳铭：平头哥AI芯片下半年将持续放量",
-        "desc": "8月20日，阿里巴巴集团发布2027财年第一季度财报。在分析师电话会上，集团CEO吴泳铭表示，基于新一代平头哥芯片真武M"
-      },
-      {
-        "title": "中金公司：换股吸收合并东兴证券、信达证券，将于8月27日上会",
-        "desc": "中金公司公告，公司拟通过向东兴证券全体A股换股股东发行A股股票、向信达证券全体A股换股股东发行A股股票的方式，换股吸收合"
-      }
+      "兆易创新拟斥资10-20亿元回购股份，释放强烈信心，叠加平头哥AI芯片放量预期，半导体板块情绪提振。",
+      "富士康紧急招工冲刺iPhone18量产，苹果产业链旺季备货启动在即，供应链有望迎来订单催化。",
+      "阿里巴巴吴泳铭透露AI年化收入突破495亿元，平头哥芯片持续放量，验证AI商业化落地加速。"
     ],
     "stock_advice": [
       {
-        "code": "510050",
-        "name": "50ETF",
-        "score": 65,
-        "trend": "看多",
-        "support_resistance": "支撑位看5日线，压力位看前高",
-        "action": "逢高减仓"
-      },
-      {
         "code": "588000",
-        "name": "科创50",
-        "score": 45,
-        "trend": "中性",
-        "support_resistance": "支撑位看5日线，压力位看前高",
-        "action": "持有/观望"
-      },
-      {
-        "code": "159919",
-        "name": "沪深300ETF",
-        "score": 65,
+        "name": "科创50ETF",
+        "score": 85,
         "trend": "看多",
-        "support_resistance": "支撑位看5日线，压力位看前高",
-        "action": "逢高减仓"
+        "support_resistance": "支撑220.0，阻力235.0",
+        "action": "逢低布局，放量突破前高可加仓"
       },
       {
         "code": "600519",
         "name": "贵州茅台",
-        "score": 45,
+        "score": 60,
         "trend": "中性",
-        "support_resistance": "支撑位看5日线，压力位看前高",
-        "action": "持有/观望"
+        "support_resistance": "支撑102.0，阻力108.0",
+        "action": "震荡整理，等待消费数据回暖信号"
       },
       {
         "code": "300750",
         "name": "宁德时代",
-        "score": 65,
+        "score": 55,
         "trend": "中性",
-        "support_resistance": "支撑位看5日线，压力位看前高",
-        "action": "持有/观望"
+        "support_resistance": "支撑130.0，阻力140.0",
+        "action": "短期承压，关注新能源车销量与海外政策动向"
       },
       {
-        "code": "hk00700",
+        "code": "HK00700",
         "name": "腾讯控股",
-        "score": 65,
-        "trend": "中性",
-        "support_resistance": "支撑位看5日线，压力位看前高",
-        "action": "持有/观望"
+        "score": 75,
+        "trend": "看多",
+        "support_resistance": "支撑78.0，阻力85.0",
+        "action": "企稳反弹，AI收入增长提供基本面支撑"
       },
       {
         "code": "AAPL",
         "name": "苹果",
-        "score": 45,
+        "score": 70,
         "trend": "中性",
-        "support_resistance": "支撑位看5日线，压力位看前高",
-        "action": "持有/观望"
+        "support_resistance": "支撑265.0，阻力278.0",
+        "action": "短期回调但量产在即，逢低关注供应链机会"
       }
     ],
-    "risk_tips": "美联储政策与汇率波动仍是外部风险，控制仓位，勿追高。",
+    "risk_tips": "美债长端利率重拾升势，全球流动性预期收紧；黄金、白银快速回落反映避险情绪降温；纳斯达克期货下跌或传导至港股科技股；地缘与汇率波动仍存不确定性。",
     "_meta": {
-      "model": "mock",
-      "note": "演示分析(未配置MODELSCOPE_API_KEY)"
+      "model": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+      "base": "https://api-inference.modelscope.cn/v1"
     }
   },
   "meta": {
-    "best_qwen": "Qwen/Qwen2.5-72B-Instruct",
-    "available_models": [],
+    "best_qwen": "Qwen/Qwen3-235B-A22B",
+    "available_models": [
+      "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "deepseek-ai/DeepSeek-V4-Pro",
+      "deepseek-ai/DeepSeek-V4-Pro-0813",
+      "MedAIBase/AntAngelMed",
+      "meituan-longcat/LongCat-Flash-Lite",
+      "MiniMax/MiniMax-M1-80k",
+      "MiniMax/MiniMax-M3",
+      "mistralai/Mistral-Large-Instruct-2407",
+      "MusePublic/Qwen-Image-Edit",
+      "opencompass/CompassJudger-1-32B-Instruct",
+      "OpenGVLab/InternVL3_5-241B-A28B",
+      "PaddlePaddle/ERNIE-4.5-0.3B-PT",
+      "PaddlePaddle/ERNIE-4.5-21B-A3B-PT",
+      "PaddlePaddle/ERNIE-4.5-300B-A47B-PT",
+      "PaddlePaddle/ERNIE-4.5-VL-28B-A3B-PT",
+      "Qwen/Qwen-Image-Edit",
+      "Qwen/Qwen3-14B",
+      "Qwen/Qwen3-235B-A22B",
+      "Qwen/Qwen3-235B-A22B-Instruct-2507",
+      "Qwen/Qwen3-235B-A22B-Thinking-2507",
+      "Qwen/Qwen3-30B-A3B",
+      "Qwen/Qwen3-30B-A3B-Thinking-2507",
+      "Qwen/Qwen3-4B",
+      "Qwen/Qwen3-8B",
+      "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "Qwen/Qwen3-Next-80B-A3B-Instruct",
+      "Qwen/Qwen3-Next-80B-A3B-Thinking",
+      "Qwen/Qwen3-VL-235B-A22B-Instruct",
+      "Qwen/Qwen3-VL-8B-Instruct",
+      "Qwen/Qwen3-VL-8B-Thinking"
+    ],
     "hotspot_count": 20,
     "stock_count": 7
   }
