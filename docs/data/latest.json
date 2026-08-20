@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-08-20 07:00 (初始化占位)",
+  "date": "2026-08-20",
+  "hotspots": [
+    {"title": "【占位】首次构建前演示 - 央行逆回购操作", "content": "占位数据，等待Actions首次运行后替换为真实抓取", "url": "#", "time": "2026-08-20", "source": "财联社电讯", "hits": ["央行"], "score": 5},
+    {"title": "【占位】证监会活跃资本市场表态", "content": "占位", "url": "#", "time": "2026-08-20", "source": "华尔街见闻", "hits": ["证监会"], "score": 4}
+  ],
+  "stocks": [
+    {"code": "510050", "name": "50ETF", "price": 2.58, "pct": 0.62, "tech": "缩量整理", "market": "CN", "source": "mock"},
+    {"code": "600519", "name": "贵州茅台", "price": 1688.0, "pct": -0.32, "tech": "承压回调", "market": "CN", "source": "mock"},
+    {"code": "300750", "name": "宁德时代", "price": 189.5, "pct": 1.2, "tech": "放量上攻", "market": "CN", "source": "mock"}
+  ],
+  "analysis": {
+    "core_conclusion": "演示早报：这是初始化占位数据。配置好 MODELSCOPE_API_KEY 并触发一次工作流后，这里将显示真实的AI融合分析。",
+    "policy_radar": [{"title": "占位政策1", "impact": "等待真实抓取后由Qwen生成影响解读"}],
+    "market_hot": [{"title": "占位热点", "desc": "等待抓取"}],
+    "stock_advice": [
+      {"code": "510050", "name": "50ETF", "score": 62, "trend": "中性", "support_resistance": "支撑2.55 压力2.62", "action": "观望"},
+      {"code": "600519", "name": "贵州茅台", "score": 55, "trend": "中性", "support_resistance": "支撑1650 压力1720", "action": "持有"},
+      {"code": "300750", "name": "宁德时代", "score": 71, "trend": "看多", "support_resistance": "支撑185 压力195", "action": "逢低关注"}
+    ],
+    "risk_tips": "演示风险提示：首次构建后由AI生成真实风险提示。",
+    "_meta": {"model": "mock", "note": "初始化占位，待Actions运行"}
+  },
+  "meta": {"best_qwen": "Qwen/Qwen3-235B-A22B", "available_models": [], "hotspot_count": 2, "stock_count": 3}
+}

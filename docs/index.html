@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Finance Radar Pro · 每日07:00财经早报</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f6f7f9;--card:#fff;--text:#0f172a;--muted:#64748b;--border:#e2e8f0;--primary:#0ea5e9;--primary2:#6366f1;--green:#10b981;--red:#ef4444;--amber:#f59e0b}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--primary);text-decoration:none}
+.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.header-inner{max-width:1280px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:grid;place-items:center;color:#fff;font-weight:800;font-size:18px;box-shadow:0 8px 24px rgba(14,165,233,.35)}
+.brand h1{font-size:18px;letter-spacing:.2px}
+.brand p{font-size:12px;color:var(--muted)}
+.header-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.badge{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#fff;color:var(--muted)}
+.btn{appearance:none;border:0;padding:9px 14px;border-radius:10px;font-weight:600;cursor:pointer;transition:.2s}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;box-shadow:0 6px 18px rgba(99,102,241,.3)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{background:#fff;border:1px solid var(--border);color:var(--text)}
+.container{max-width:1280px;margin:20px auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+@media(max-width:980px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.card-hd{padding:16px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(180deg,#fff,#fbfdff)}
+.card-hd h2{font-size:15px}
+.card-bd{padding:18px}
+.kv{font-size:12px;color:var(--muted)}
+.hero{background:linear-gradient(135deg,#0ea5e9 0%,#6366f1 55%,#0f172a 100%);color:#fff;border:0;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:-40% -20%;background:radial-gradient(600px 300px at 20% 20%,rgba(255,255,255,.18),transparent)}
+.hero-bd{padding:22px;position:relative}
+.hero-label{font-size:12px;letter-spacing:.12em;opacity:.85}
+.hero-title{font-size:22px;font-weight:800;margin:6px 0 8px}
+.hero-desc{opacity:.92;font-size:14px;line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);font-size:12px}
+.stock-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:640px){.stock-grid{grid-template-columns:1fr}}
+.stock{border:1px solid var(--border);border-radius:14px;padding:14px;background:#fff;transition:.2s}
+.stock:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(15,23,42,.06)}
+.stock-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.stock-name{font-weight:700}
+.stock-code{font-size:12px;color:var(--muted)}
+.price{font-weight:800;font-size:18px}
+.pct{font-size:12px;padding:4px 8px;border-radius:999px;font-weight:700}
+.pct.up{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
+.pct.down{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
+.pct.flat{background:#f1f5f9;color:#475569}
+.meta{font-size:12px;color:var(--muted);margin-top:6px}
+.score{height:6px;background:#f1f5f9;border-radius:999px;overflow:hidden;margin-top:10px}
+.score-bar{height:100%;background:linear-gradient(90deg,var(--green),var(--amber))}
+.list{display:flex;flex-direction:column;gap:12px}
+.item{padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:#fff}
+.item h3{font-size:14px;margin-bottom:4px}
+.item p{font-size:13px;color:#334155}
+.tag{font-size:11px;padding:3px 8px;border-radius:999px;background:#f1f5f9;border:1px solid var(--border);color:#475569}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.input, .select, .textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:14px;outline:0}
+.input:focus,.select:focus,.textarea:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(14,165,233,.12)}
+.drawer{position:fixed;inset:0;display:none;z-index:50}
+.drawer.open{display:block}
+.drawer-mask{position:absolute;inset:0;background:rgba(15,23,42,.42);backdrop-filter:blur(4px)}
+.drawer-panel{position:absolute;right:0;top:0;bottom:0;width:min(520px,92vw);background:#fff;border-left:1px solid var(--border);box-shadow:-20px 0 60px rgba(15,23,42,.18);overflow:auto}
+.drawer-hd{position:sticky;top:0;background:#fff;padding:16px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;z-index:1}
+.chip-input{display:flex;gap:8px;margin-top:8px}
+.small{font-size:12px;color:var(--muted)}
+.kbd{font-family:ui-monospace,Menlo,monospace;font-size:11px;padding:2px 6px;border-radius:6px;background:#f1f5f9;border:1px solid var(--border)}
+.footer{text-align:center;padding:28px 16px;color:var(--muted);font-size:12px}
+.skeleton{height:14px;background:linear-gradient(90deg,#f1f5f9,#e2e8f0,#f1f5f9);background-size:200% 100%;animation:shimmer 1.2s infinite;border-radius:8px}
+@keyframes shimmer{0%{background-position:0% 0}100%{background-position:200% 0}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">FR</div>
+      <div>
+        <h1>Finance Radar Pro <span style="font-weight:400;color:var(--muted)">· 融合版</span></h1>
+        <p>TrendRadar 热点雷达 + daily_stock 盯盘 · 每日 <b>07:00</b> 自动更新 · GitHub Pages</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span class="badge" id="genTime">加载中…</span>
+      <span class="badge" id="modelBadge">模型: 检测中</span>
+      <button class="btn btn-ghost" onclick="openDrawer()">⚙️ 配置自选 & 关键词</button>
+      <button class="btn btn-primary" onclick="location.reload()">↻ 刷新</button>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <!-- HERO -->
+  <div class="card hero" style="margin-bottom:18px">
+    <div class="hero-bd">
+      <div class="hero-label">CORE CONCLUSION · 今日核心结论</div>
+      <div class="hero-title" id="coreConclusion"><span class="skeleton" style="display:inline-block;width:80%;height:18px"></span></div>
+      <div class="hero-desc" id="coreMeta">AI 正在融合全网热点与自选股数据生成观点…</div>
+      <div class="chips" id="coreChips"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- LEFT -->
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="card">
+        <div class="card-hd"><h2>📡 政策雷达 · Policy Radar</h2><span class="kv" id="policyCount"></span></div>
+        <div class="card-bd"><div class="list" id="policyList"></div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-hd"><h2>🔥 市场热点 · Market Hot</h2><span class="kv">AI 精选 Top5</span></div>
+        <div class="card-bd"><div class="list" id="hotList"></div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-hd"><h2>📰 全网热点明细 · 命中关键词</h2><div class="toolbar"><input class="input" id="searchHot" placeholder="搜索标题/来源/关键词…" style="max-width:260px" oninput="filterHot()"></div></div>
+        <div class="card-bd"><div class="list" id="hotspotList"></div></div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="card">
+        <div class="card-hd"><h2>📈 自选股/基金仪表盘</h2><span class="kv" id="stockMeta"></span></div>
+        <div class="card-bd">
+          <div class="toolbar">
+            <input class="input" id="stockFilter" placeholder="筛选代码/名称…" style="max-width:200px" oninput="filterStock()">
+            <span class="small">数据来源: <span id="stockSource">--</span></span>
+          </div>
+          <div class="stock-grid" id="stockGrid"></div>
+          <div style="margin-top:14px;padding:12px;border:1px dashed var(--border);border-radius:12px;background:#f8fafc">
+            <div style="font-weight:700;font-size:13px">💡 如何实时调整自选？</div>
+            <div class="small" style="margin-top:6px;line-height:1.7">
+              右上角 <span class="kbd">配置自选 & 关键词</span> 可直接增删，保存到浏览器 <b>localStorage</b> 立即生效；同时提供 <b>同步到云端</b> 按钮，会自动更新仓库 <span class="kbd">config/watchlist.json</span> 并触发下一次07:00任务使用新清单。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-hd"><h2>⚠️ 风险提示 & 策略</h2></div>
+        <div class="card-bd"><p id="riskTips" style="font-size:14px;color:#334155"></p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-hd"><h2>🧠 AI 模型 · 适配魔搭</h2><span class="kv">OpenAI兼容</span></div>
+        <div class="card-bd">
+          <div class="small">当前选择</div>
+          <div style="font-weight:700" id="currentModel">--</div>
+          <div class="small" id="modelNote" style="margin-top:6px"></div>
+          <div style="margin-top:12px">
+            <div class="small">可用模型（从服务器拉取）</div>
+            <select class="select" id="modelSelect" style="margin-top:6px"></select>
+            <div class="small" style="margin-top:8px">默认自动选用魔搭最强的 <b>Qwen3 旗舰</b>，也可在 GitHub Secrets 中设置 <span class="kbd">MODEL_NAME</span> 固定。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-hd"><h2>📚 历史早报</h2></div>
+        <div class="card-bd" id="historyList"><span class="small">历史文件位于 <span class="kbd">docs/data/history/</span>，每日自动归档。</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Finance Radar Pro · 融合 TrendRadar(热点) + daily_stock_analysis(盯盘) · 部署于 GitHub Actions + Pages · 每日 07:00 (Asia/Shanghai) 自动构建<br>
+    仓库: <a href="https://github.com/259773138/finance-radar-pro" target="_blank">259773138/finance-radar-pro</a> · 本页纯静态，可离线查看
+  </div>
+</div>
+
+<!-- Drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-mask" onclick="closeDrawer()"></div>
+  <div class="drawer-panel">
+    <div class="drawer-hd">
+      <div><div style="font-weight:800">⚙️ 实时配置</div><div class="small">修改后立即本地生效，同步到云端后次日07:00生效</div></div>
+      <button class="btn btn-ghost" onclick="closeDrawer()">✕</button>
+    </div>
+    <div style="padding:18px;display:flex;flex-direction:column;gap:18px">
+      <div>
+        <div style="font-weight:700">① 自选股 / 基金清单</div>
+        <div class="small">支持 A股(600519), 港股(hk00700), 美股(AAPL), 基金(510050)。实时可增删。</div>
+        <div id="watchlistChips" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px"></div>
+        <div class="chip-input">
+          <input class="input" id="newCode" placeholder="代码 如 600519 / hk00700 / AAPL" style="flex:1">
+          <input class="input" id="newName" placeholder="备注名(可选)" style="flex:1">
+          <select class="select" id="newMarket" style="width:110px"><option value="CN">A股/ETF</option><option value="HK">港股</option><option value="US">美股</option></select>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn btn-primary" onclick="addStock()">+ 添加</button>
+          <button class="btn btn-ghost" onclick="resetWatchlist()">恢复默认</button>
+          <button class="btn btn-ghost" onclick="exportWatchlist()">导出JSON</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:700">② 关键词库（全面版已内置120+）</div>
+        <div class="small">默认覆盖 宏观/监管/行业/国际 四大类，你可在末尾追加自己的关注词。</div>
+        <textarea class="textarea" id="keywordsArea" rows="8" placeholder="每行一个关键词…"></textarea>
+        <div class="small" style="margin-top:6px">提示：关键词同时影响热点过滤与AI解读权重，政策类会自动加权。</div>
+      </div>
+
+      <div style="padding:12px;background:#f8fafc;border:1px solid var(--border);border-radius:12px">
+        <div style="font-weight:700">☁️ 同步到云端（让下次07:00生效）</div>
+        <div class="small" style="margin-top:6px">本页改动默认只存浏览器。点击同步会尝试调用 GitHub API 直接更新仓库文件（需要你在下方粘贴一个 <b>仅 contents:write 权限的细粒度PAT</b>，用完即焚）。若不方便，可手动复制JSON去仓库修改 <span class="kbd">config/watchlist.json</span>。</div>
+        <input class="input" id="syncPat" placeholder="可选：粘贴 GitHub PAT (ghp_... / github_pat_...), 仅本次使用不存储" style="margin-top:8px">
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn btn-primary" onclick="syncToGithub()">同步自选到云端</button>
+          <button class="btn btn-ghost" onclick="triggerWorkflow()">手动触发一次构建</button>
+        </div>
+        <div class="small" id="syncStatus" style="margin-top:8px"></div>
+      </div>
+
+      <div class="small" style="color:var(--muted)">小技巧：本页所有配置也支持通过工作流手动触发页输入框 <span class="kbd">stocks</span> 直接覆盖。</div>
+    </div>
+  </div>
+</div>
+
+<script>
+let REPORT=null, HOT_CACHE=[];
+const LS_WATCH="fr_watchlist", LS_KW="fr_keywords";
+
+async function loadReport(){
+  try{
+    const r=await fetch("data/latest.json?ts="+Date.now(),{cache:"no-store"});
+    if(!r.ok) throw new Error(r.status);
+    REPORT=await r.json();
+  }catch(e){
+    // fallback mock if not generated yet
+    REPORT={
+      generated_at: new Date().toLocaleString(),
+      hotspots: [
+        {title:"【演示】央行开展逆回购操作",content:"演示数据",source:"演示",hits:["央行"],score:3,url:"#"},
+        {title:"【演示】证监会活跃资本市场表态",content:"...",source:"演示",hits:["证监会"],score:2,url:"#"}
+      ],
+      stocks: [
+        {code:"510050",name:"50ETF",price:2.58,pct:0.62,tech:"缩量整理",market:"CN",source:"mock"},
+        {code:"600519",name:"贵州茅台",price:1688,pct:-0.3,tech:"承压回调",market:"CN",source:"mock"}
+      ],
+      analysis:{
+        core_conclusion:"演示早报：等待今日07:00首次自动构建后显示真实数据。当前为占位演示。",
+        policy_radar:[{title:"等待构建",impact:"首次构建后自动生成"}],
+        market_hot:[{title:"等待构建",desc:"..."}],
+        stock_advice:[{code:"510050",name:"50ETF",score:60,trend:"中性",support_resistance:"支撑2.55 压力2.62",action:"观望"}],
+        risk_tips:"首次部署后，GitHub Actions 将在明日07:00自动运行，你也可去 Actions 页手动触发。",
+        _meta:{model:"mock"}
+      },
+      meta:{best_qwen:"Qwen/Qwen3-235B-A22B"}
+    };
+  }
+  render();
+}
+
+function render(){
+  const a=REPORT.analysis||{}, meta=REPORT.meta||{};
+  document.getElementById("genTime").textContent="更新: "+REPORT.generated_at;
+  document.getElementById("modelBadge").textContent="模型: "+(a._meta?.model||meta.best_qwen||"Qwen");
+  document.getElementById("coreConclusion").textContent=a.core_conclusion||"—";
+  document.getElementById("coreMeta").textContent=`热点${REPORT.hotspots.length}条 · 自选${REPORT.stocks.length}只 · ${a._meta?.note||""}`;
+  // chips for quick keywords
+  const chips=document.getElementById("coreChips");
+  chips.innerHTML=(REPORT.hotspots.slice(0,6).flatMap(h=>h.hits||[]).slice(0,8).map(k=>`<span class="chip">#${k}</span>`).join(""))||'<span class="chip">等待关键词命中</span>';
+
+  // policy
+  document.getElementById("policyCount").textContent=(a.policy_radar||[]).length+"条";
+  document.getElementById("policyList").innerHTML=(a.policy_radar||[]).map(p=>`<div class="item"><h3>${esc(p.title)}</h3><p>${esc(p.impact)}</p></div>`).join("")||"<p class='small'>暂无</p>";
+  document.getElementById("hotList").innerHTML=(a.market_hot||[]).map(h=>`<div class="item"><h3>${esc(h.title)}</h3><p>${esc(h.desc||"")}</p></div>`).join("")||"<p class='small'>暂无</p>";
+
+  // risk
+  document.getElementById("riskTips").textContent=a.risk_tips||"—";
+  document.getElementById("currentModel").textContent=a._meta?.model||meta.best_qwen||"--";
+  document.getElementById("modelNote").textContent=a._meta?.note||meta.best_qwen?`已自动选用魔搭最强可用Qwen: ${meta.best_qwen}`:"";
+  document.getElementById("stockMeta").textContent=`${REPORT.stocks.length}只`;
+  document.getElementById("stockSource").textContent=REPORT.stocks[0]?.source||"--";
+
+  // stocks
+  renderStocks();
+  // hotspots
+  HOT_CACHE=[...REPORT.hotspots];
+  renderHotspots(HOT_CACHE);
+
+  // models select
+  fetch("data/models.json?ts="+Date.now()).then(r=>r.json()).then(m=>{
+    const sel=document.getElementById("modelSelect");
+    const models=m.models||[];
+    sel.innerHTML=models.map(x=>`<option ${x===m.best?"selected":""}>${x}</option>`).join("")||`<option>${meta.best_qwen||"Qwen/Qwen2.5-72B-Instruct"}</option>`;
+  }).catch(()=>{});
+
+  // watchlist chips from LS
+  renderWatchlistChips();
+}
+
+function renderStocks(filter=""){
+  const grid=document.getElementById("stockGrid");
+  const f=filter.toLowerCase();
+  // merge report stocks with local watchlist highlighting
+  let stocks=REPORT.stocks;
+  const local=getLocalWatch();
+  // if local has extra codes not in report, append placeholder
+  if(local){
+    const codes=new Set(stocks.map(s=>s.code));
+    local.forEach(l=>{
+      if(!codes.has(l.code)) stocks=[...stocks, {code:l.code,name:l.name,price:"--",pct:0,tech:"待下次构建",market:l.market,source:"local"}];
+    });
+    // filter by local watchlist? show all but highlight
+  }
+  const filtered=stocks.filter(s=>!f || s.code.toLowerCase().includes(f) || s.name.toLowerCase().includes(f));
+  // advice map
+  const advMap={};
+  (REPORT.analysis.stock_advice||[]).forEach(a=>advMap[a.code]=a);
+  grid.innerHTML=filtered.map(s=>{
+    const adv=advMap[s.code]||{};
+    const pctClass=s.pct>0?"up":s.pct<0?"down":"flat";
+    const pctText=(typeof s.pct==="number"? (s.pct>0?"+":"")+s.pct+"%":"--");
+    return `<div class="stock">
+      <div class="stock-top"><div><div class="stock-name">${esc(s.name)}</div><div class="stock-code">${esc(s.code)} · ${esc(s.market||"")}</div></div><span class="pct ${pctClass}">${pctText}</span></div>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-top:8px"><span class="price">${s.price}</span><span class="small">${esc(s.tech||"")}</span></div>
+      <div class="meta">AI评分 ${adv.score||"--"} · 趋势 ${esc(adv.trend||"--")} · 操作 ${esc(adv.action||"--")}</div>
+      <div class="meta">支撑/压力: ${esc(adv.support_resistance||"--")}</div>
+      <div class="score"><div class="score-bar" style="width:${adv.score||50}%"></div></div>
+    </div>`;
+  }).join("") || "<p class='small'>无匹配</p>";
+}
+function renderHotspots(list){
+  const c=document.getElementById("hotspotList");
+  c.innerHTML=list.map(h=>`<div class="item"><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span class="tag">${esc(h.source)}</span>${(h.hits||[]).map(k=>`<span class="tag" style="background:#eff6ff;color:#1d4ed8">#${esc(k)}</span>`).join("")}<span class="small">score ${h.score||0}</span></div><h3 style="margin-top:8px"><a href="${h.url||'#'}" target="_blank">${esc(h.title)}</a></h3><p>${esc(h.content||"").slice(0,140)}</p><div class="small">${esc(h.time||"")}</div></div>`).join("") || "<p class='small'>暂无热点</p>";
+}
+function filterHot(){
+  const q=document.getElementById("searchHot").value.toLowerCase();
+  const f=HOT_CACHE.filter(h=> (h.title+h.source+(h.hits||[]).join(",")).toLowerCase().includes(q));
+  renderHotspots(f);
+}
+function filterStock(){ renderStocks(document.getElementById("stockFilter").value); }
+
+function getLocalWatch(){
+  try{const v=localStorage.getItem(LS_WATCH); return v?JSON.parse(v):null}catch{return null}
+}
+function setLocalWatch(arr){ localStorage.setItem(LS_WATCH, JSON.stringify(arr)); }
+function renderWatchlistChips(){
+  const c=document.getElementById("watchlistChips");
+  let list=getLocalWatch();
+  if(!list){
+    // init from report stocks
+    list=REPORT.stocks.map(s=>({code:s.code,name:s.name,market:s.market||"CN"}));
+    setLocalWatch(list);
+  }
+  c.innerHTML=list.map((s,i)=>`<span class="chip" style="background:#fff;border:1px solid var(--border);color:var(--text)">${esc(s.code)} ${esc(s.name)} <span style="opacity:.6">${esc(s.market)}</span> <a href="#" onclick="removeStock(${i});return false" style="margin-left:6px;color:var(--red)">✕</a></span>`).join("")||"<span class='small'>暂无</span>";
+  // keywords
+  const kw=localStorage.getItem(LS_KW);
+  if(kw) document.getElementById("keywordsArea").value=kw;
+  else{
+    // load from comprehensive file placeholder
+    document.getElementById("keywordsArea").value="（已内置120+全面关键词，额外关注可在此追加，每行一个）\n例如：\n算力租赁\n商业航天\n";
+  }
+}
+function addStock(){
+  const code=document.getElementById("newCode").value.trim();
+  const name=document.getElementById("newName").value.trim()||code;
+  const market=document.getElementById("newMarket").value;
+  if(!code) return alert("请填写代码");
+  const list=getLocalWatch()||[];
+  if(list.find(x=>x.code===code)) return alert("已存在");
+  list.push({code,name,market});
+  setLocalWatch(list);
+  document.getElementById("newCode").value="";document.getElementById("newName").value="";
+  renderWatchlistChips();renderStocks();
+  // also persist keywords
+  localStorage.setItem(LS_KW, document.getElementById("keywordsArea").value);
+}
+function removeStock(i){
+  const list=getLocalWatch()||[]; list.splice(i,1); setLocalWatch(list); renderWatchlistChips();renderStocks();
+}
+function resetWatchlist(){ localStorage.removeItem(LS_WATCH); renderWatchlistChips();renderStocks(); }
+function exportWatchlist(){
+  const data=JSON.stringify(getLocalWatch(),null,2);
+  const blob=new Blob([data],{type:"application/json"});
+  const url=URL.createObjectURL(blob); const a=document.createElement("a"); a.href=url; a.download="watchlist.json"; a.click(); URL.revokeObjectURL(url);
+}
+function openDrawer(){ document.getElementById("drawer").classList.add("open"); }
+function closeDrawer(){ document.getElementById("drawer").classList.remove("open"); localStorage.setItem(LS_KW, document.getElementById("keywordsArea").value); }
+
+async function syncToGithub(){
+  const pat=document.getElementById("syncPat").value.trim();
+  const status=document.getElementById("syncStatus");
+  if(!pat) return status.textContent="⚠️ 请先粘贴PAT，或手动到仓库修改 config/watchlist.json";
+  status.textContent="⏳ 同步中…";
+  try{
+    const content=btoa(unescape(encodeURIComponent(JSON.stringify(getLocalWatch(),null,2))));
+    // get sha
+    let sha=null;
+    const getRes=await fetch("https://api.github.com/repos/259773138/finance-radar-pro/contents/config/watchlist.json",{headers:{Authorization:"token "+pat}});
+    if(getRes.ok){ const j=await getRes.json(); sha=j.sha; }
+    const putRes=await fetch("https://api.github.com/repos/259773138/finance-radar-pro/contents/config/watchlist.json",{
+      method:"PUT",
+      headers:{Authorization:"token "+pat,"Content-Type":"application/json"},
+      body: JSON.stringify({message:"chore: update watchlist via web UI", content, sha: sha||undefined})
+    });
+    if(putRes.ok) status.textContent="✅ 已同步到云端，下次07:00构建将使用新自选。建议再点“手动触发一次构建”。";
+    else{ const t=await putRes.text(); status.textContent="❌ 同步失败: "+t.slice(0,300); }
+  }catch(e){ status.textContent="❌ 异常: "+e.message; }
+}
+async function triggerWorkflow(){
+  const pat=document.getElementById("syncPat").value.trim();
+  const status=document.getElementById("syncStatus");
+  if(!pat) return status.textContent="⚠️ 触发工作流需要PAT，暂请去 GitHub -> Actions -> Daily Finance Radar -> Run workflow 手动触发";
+  status.textContent="⏳ 触发中…";
+  try{
+    const res=await fetch("https://api.github.com/repos/259773138/finance-radar-pro/actions/workflows/daily.yml/dispatches",{
+      method:"POST",
+      headers:{Authorization:"token "+pat,"Content-Type":"application/json"},
+      body: JSON.stringify({ref:"main", inputs:{stocks: JSON.stringify(getLocalWatch()) }})
+    });
+    if(res.status===204) status.textContent="✅ 已触发构建，约1-2分钟后刷新本页即可看到新报告（去Actions查看进度）";
+    else{ const t=await res.text(); status.textContent="❌ 触发失败: "+t.slice(0,300); }
+  }catch(e){ status.textContent="❌ 异常: "+e.message; }
+}
+function esc(s){ return (s||"").replace(/[&<>"']/g, m=>({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[m])); }
+
+loadReport();
+</script>
+</body>
+</html>

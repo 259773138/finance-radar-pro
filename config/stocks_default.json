@@ -1,0 +1,9 @@
+[
+  {"code": "510050", "name": "50ETF", "market": "CN"},
+  {"code": "588000", "name": "科创50", "market": "CN"},
+  {"code": "159919", "name": "沪深300ETF", "market": "CN"},
+  {"code": "600519", "name": "贵州茅台", "market": "CN"},
+  {"code": "300750", "name": "宁德时代", "market": "CN"},
+  {"code": "hk00700", "name": "腾讯控股", "market": "HK"},
+  {"code": "AAPL", "name": "苹果", "market": "US"}
+]
