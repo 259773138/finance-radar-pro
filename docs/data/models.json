@@ -1,1 +1,4 @@
-{"best":"Qwen/Qwen3-235B-A22B","models":["Qwen/Qwen3-235B-A22B","Qwen/Qwen2.5-72B-Instruct","Qwen/Qwen2-72B-Instruct"]}
+{
+  "best": "Qwen/Qwen2.5-72B-Instruct",
+  "models": []
+}
