@@ -11,6 +11,8 @@
     "MiniMax/MiniMax-M3",
     "mistralai/Mistral-Large-Instruct-2407",
     "MusePublic/Qwen-Image-Edit",
+    "nex-agi/Nex-N2.5-mini",
+    "nex-agi/Nex-N2.5-Pro",
     "opencompass/CompassJudger-1-32B-Instruct",
     "OpenGVLab/InternVL3_5-241B-A28B",
     "PaddlePaddle/ERNIE-4.5-0.3B-PT",
