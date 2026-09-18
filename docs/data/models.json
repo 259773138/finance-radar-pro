@@ -32,11 +32,9 @@
     "Shanghai_AI_Laboratory/Intern-S2-Preview",
     "stepfun-ai/Step-3.5-Flash",
     "stepfun-ai/Step-3.7-Flash",
-    "Tencent-Hunyuan/Hy3",
     "XGenerationLab/XiYanSQL-QwenCoder-32B-2412",
     "XGenerationLab/XiYanSQL-QwenCoder-32B-2504",
     "ZhipuAI/GLM-4.7-Flash",
-    "ZhipuAI/GLM-5.2",
-    "ZhipuAI/GLM-5.3-Flash"
+    "ZhipuAI/GLM-5.2"
   ]
 }
